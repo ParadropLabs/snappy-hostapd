@@ -34,6 +34,11 @@
   # Allows interface configuration and such.
   capability net_admin,
 
+  # Allow usage of raw and packet sockets.
+  capability net_raw,
+  network packet,
+  network raw,
+
   # Unblock wireless devices.
   /dev/rfkill rw,
 
@@ -41,9 +46,9 @@
   /proc/*/net/psched r,
 
   # Read any config file with "hostapd" in its name, wherever it may be.
-  /**/hostapd*.conf r,
+  /{,var/}run/**/hostapd*.conf r,
 
   # Allow writing a pid file, generally in /var/run.
-  /var/run/**/hostapd*.pid w,
+  /{,var/}run/**/hostapd*.pid w,
 }
 
