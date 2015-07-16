@@ -6,3 +6,6 @@ type: framework
 binaries:
  - name: bin/hostapd
    description: User space daemon for running an access point
+   security-policy:
+       apparmor: meta/hostapd.apparmor
+       seccomp: meta/hostapd.seccomp
